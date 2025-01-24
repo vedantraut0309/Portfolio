@@ -1,37 +1,14 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center; /* Center the navigation */
-}
+var tablinks = document.getElementsByClassName("tab-links");
+var tabcontents = document.getElementsByClassName("tab-contents");
 
-nav li {
-  display: inline;
-  margin: 0 15px;
-}
-
-/* Add more styles for sections, images, buttons, etc. */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 20px;
-  padding: 20px;
-}
-img{
-  max-width: 100%;
-  height: auto;
-}
-/* Responsive design using media queries */
-@media (max-width: 768px) {
-  nav li {
-      display: block; /* Stack navigation on smaller screens */
-      margin: 10px 0;
+function opentab(tabname) {
+  for (tablink of tablinks) {
+    tablink.classList.remove("active-link");
   }
+  for (tabcontent of tabcontents) {
+    tabcontent.classList.remove("active-tab");
+  }
+  event.currentTarget.classList.add("active-link");
+  document.getElementById(tabname).classList.add("active-tab");
 }
